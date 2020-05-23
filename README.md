@@ -1,7 +1,7 @@
 # Dhamma Dhara App
 
 ## Introduction
-This application will be used by the Vipassana Medidataion Center (Dhamma Dhara) to organize it's maintenance-related workflow. See the (problem definition and requirements)[problem_definition_and_requirements] for the problem it attempts to solve. 
+This application will be used by the Vipassana Medidataion Center (Dhamma Dhara) to organize it's maintenance-related workflow. See the [problem definition and requirements](./problem_definition_and_requirements.md) for the problem it attempts to solve. 
 
 ## Technologies used
 
