@@ -1,4 +1,4 @@
-# Problem Definition and requirements
+# Problem Definition and Requirements
 
 ## Problem definition
 There is no system or protocol for organizing and disseminating maintenance related knowledge from one maintenance manager to the next, or from any one person to another.
@@ -22,3 +22,13 @@ The problem is not tracking the backlog of what needs to happen. This can exist 
     - Water filters
     - Boilers
     - etc
+
+## Requirements
+
+### General Requirements
+
+  - Usability: It should be intuitive to anyone that uses it.  No special computer skills necessary or instructions should be needed.  
+  - Manageability: The maintenance manager at Dhamma Dhara should know how to manage and modify it.  A quick training by the previous maintenance manager should suffice.  A short set of instructions saved on google drive or a web-site would also do.
+  - Functionality: This system should be able to organize text, photos, videos.
+  - Accessibility: This system should be accessible throughout campus.  
+  - Content: Maintains ability to create, view, edit and delete text, tables, photos and videos related to maintenance appliances.
