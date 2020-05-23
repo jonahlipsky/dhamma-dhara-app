@@ -17,3 +17,11 @@
 | ----------- | --------- | ----------------- |
 | item_id     | integer   | not null, indexed |
 | location_id | integer   | not null, indexed |
+
+## `user`
+| column_name  | data_type | details  |
+| ------------ | --------- | -------- |
+| login        | string    | not null |
+| password     | string    |          |
+| admin        | integer   |          |
+| superadmin   | integer   |          |
