@@ -1,7 +1,7 @@
 # Dhamma Dhara App
 
 ## Introduction
-This application will be used by the Vipassana Medidataion Center (Dhamma Dhara) to organize it's maintenance-related workflow.
+This application will be used by the Vipassana Medidataion Center (Dhamma Dhara) to organize it's maintenance-related workflow. See the (problem definition and requirements)[problem_definition_and_requirements] for the problem it attempts to solve. 
 
 ## Technologies used
 
@@ -12,5 +12,6 @@ This application will be used by the Vipassana Medidataion Center (Dhamma Dhara)
     - D3 to manage SVG manipulation
     - Bootstrap for styling
   - Graphql to manage the interaction between the backend and the frontend
+    - Apollo to manage interaction between React and Graphql
   - AWS S3 for thumbnail and photo images that are uploaded
 
