@@ -13,10 +13,11 @@
 
 ### Backend
   - Is there a relationship between selected items and users, or is selected items only a frontend question until persisted to the DB?
-  - How do we represent parent locations on the backend?
 
 ### Frontend
   - Do we want to save selected information between sessions? Sort of the 'last state viewed'?
   - How do we represent parent locations in frontend state?
 
 ## Answered Questions
+- How do we represent parent locations on the backend?
+  - Answer: a location will have a parent id. That ID will correspond to another location in the same table. 
