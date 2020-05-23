@@ -1,6 +1,5 @@
 # Minimum Viable Product & Bonus
 
-
 ## MVPs
   - Search bar that picks up a list of maintenance appliances.
   - Map of the center that can be zoomed into. You can toggle different levels. Should also be able to select a particular building and only view that building.
@@ -13,7 +12,7 @@
     - Access to vimeo and google docs, google sheets, should be controlled by App
   - Admin role and viewer role. Admin can CRUD all of the objects in the system. Viewer can just view.
   - Native application so that people can download
-
+  - SVG upload portal
 
 ## Bonus Features
   - Centers. 

@@ -9,7 +9,8 @@
 | column_name  | data_type | details  |
 | ------------ | --------- | -------- |
 | name         | string    | not null |
-| svg_id       | string    | not null | 
+| svg_id       | string    | not null |
+| parent_id    | integer   |          | 
 
 ## `item_location`
 | column_name | data_type | details           |
