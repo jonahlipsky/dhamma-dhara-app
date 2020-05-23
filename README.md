@@ -1,8 +1,14 @@
 # Dhamma Dhara App
 
 ## Introduction
-This application will be used by the Vipassana Medidataion Center (Dhamma Dhara) to organize it's maintenance-related workflow. 
+This application will be used by the Vipassana Medidataion Center (Dhamma Dhara) to organize it's maintenance-related workflow.
 
 ## Technologies used
 
-## Proposed 
+  - Node.js / Express for the backend and server
+  - Postgres Database
+  - React for the frontend
+    - Redux to manage frontend state
+  - Graphql to manage the interaction between the backend and the frontend
+  - AWS S3 for thumbnail and photo images that are uploaded
+
