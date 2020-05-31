@@ -8,6 +8,7 @@
   - Can we manage them organizationally via API? Is that too complicated? 
     - For an item, if we had one video, that could be a stand alone video. Then, once there is more than one video, it could automatically organize the videos into a video series? Can that be done via API?
 - How can we support websocket updates for multiple sessions using the same app in the same center?
+- Can we keep the SVG in an S3 bucket so that we can opensource the project?
 
 ### Backend
 - Should there be a relationship between multiple and specific items i.e. water boilers and water boiler in men's residence A?
