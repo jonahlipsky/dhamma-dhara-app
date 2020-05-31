@@ -18,6 +18,7 @@
 - Centers. 
   - Create a specification document so that a designer from a different center can create a set of SVG files autonomously, upload them, and have them appear correctly. 
   - Different centers can be opened up and have separate data entirely including user roles and admin roles. 
+- Sharded database on center id.
 - Superadmin role to manage the different centers and admins
 - Track recurring tasks and send notifications when they come due
 - “Marauder’s Map” with GPS see where you are on the map in the center in real time

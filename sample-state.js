@@ -29,21 +29,26 @@ sample_state = {
     1: {
       id: 1,
       name: "L5",
+      svg_id: "MRA_L5",
       parent: 2,
     }, 
     2: {
       id: 2,
       name: "Men's residence A",
+      svg_id: "MRA",
       parent: null
     },
     3: {
       id: 3,
       name: "Womens residence A",
+      svg_id: "WRA",
       parent: null
     },
     4: {
       id: 4,
-      name: 
+      name: "Basement room 3",
+      svg_id: "WRA_BR3",
+      parent: 3
     }
 
   },
@@ -51,13 +56,9 @@ sample_state = {
     1: {
       id: 1,
       name: "Water boilers",
-
+      locations: [2, 4]
     }
-  } 
-
-
-  "selected_rooms": {
-
-  }
-
+  },
+  "selected_items": [1],
+  "current_user": [1]
 };

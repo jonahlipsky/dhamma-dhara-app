@@ -11,9 +11,10 @@
 
 ### Backend
 - Should there be a relationship between multiple and specific items i.e. water boilers and water boiler in men's residence A?
+- How do we represent the specific names that don't change that uniquely identify a room with the colloquial name?
+  - Does this need to exist hard coded onto the map or is there a way to make it more dynamic?
 
 ### Frontend
-- How do we represent parent locations in frontend state?
 
 ## Answered Questions
 ### Architecture
@@ -34,3 +35,5 @@
 ### Frontend
 - Do we want to save selected information between sessions? Sort of the 'last state viewed'?
   - Answer: This is a nice to have.
+- How do we represent parent locations in frontend state?
+  - Answer: Include parent locations and have each item have a parent_location_id
