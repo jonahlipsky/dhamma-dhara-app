@@ -22,6 +22,8 @@
 - What architectural decisions must be made from the beginning in order to be set up for a React native application?
   - Will there have to be multiple codebases -- one for Native application and one for a regular online app?
   - Answer: There will have to be separate UI components, at least, which will allow use on mobile platform. Apparently, it is not hard to add native functionality once you have the web app, since you can use much of the same React logic, adding some additions for the React Native styling and the Native version of DOM elements. 
+    - https://www.cognitiveclouds.com/insights/what-is-the-difference-between-react-js-and-react-native/
+    - https://reactnative.dev/docs/tutorial
 
 ### Backend
 - How do we represent parent locations on the backend?

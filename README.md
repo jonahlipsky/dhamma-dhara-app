@@ -13,4 +13,5 @@ This application will be used by the Vipassana Medidataion Center (Dhamma Dhara)
 - Graphql to manage the interaction between the backend and the frontend
   - Apollo to manage interaction between React and Graphql
 - AWS S3 for thumbnail and photo images that are uploaded
+- Jest and Puppeteer for unit, integration, and end to end testing
 
