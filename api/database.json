@@ -1,0 +1,21 @@
+// {
+//   "dev": {
+//     "driver": "pg"
+//   },
+//   "pg": {
+//     "driver": "pg",
+//     "user": "test",
+//     "host": "localhost",
+//     "port": 5433,
+//     "database": "devDB",
+//     "schema": "public"
+//   },
+//   "test": {
+//     "driver": "pg"
+//   },
+//   "prod": {
+//     "driver": "pg",
+//     "user": {"ENV": "PRODUCTION_USERNAME"},
+//     "password": {"ENV": "PRODUCTION_PASSWORD"}
+//   }
+// }
