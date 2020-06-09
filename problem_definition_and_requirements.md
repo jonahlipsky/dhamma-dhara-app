@@ -3,7 +3,7 @@
 ## Problem definition
 There is no system or protocol for organizing and disseminating maintenance related knowledge from one maintenance manager to the next, or from any one person to another.
 
-  - People do not know where maintenance related appliances are.  This information lives within the heads of a small group of people that are too busy with other responsibilities to be regular or reliable references.  Even so, these people are often not able to recall where every single unit of a given item is located, never-the-less how to communicate this information to someone else.
+  - People do not know where maintenance related appliances are.  This information lives within the heads of a small group of people that are too busy with other responsibilities to be regular or reliable references.  Even so, these people are often not able to recall where every single unit of a given item is located, none-the-less how to communicate this information to someone else.
   - People do not know what maintenance related appliances are and how they work.  As a result of the general problem definition, incoming maintenance managers are left with a campus full of machines they can not identify or service.
   - People do not know how to service maintenance appliances. There are two types of tasks:
     - Recurring tasks

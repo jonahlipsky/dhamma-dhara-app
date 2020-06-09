@@ -11,7 +11,6 @@
   - Also a link to a maintenance history
   - Access to vimeo and google docs, google sheets, should be controlled by App
 - Admin role and viewer role. Admin can CRUD all of the objects in the system. Viewer can just view.
-- Native application so that people can download
 - SVG upload portal
 
 ## Bonus Features
@@ -25,5 +24,4 @@
 - Messages sent to other users
 - Other types of objects other than maintenance ie housekeeping, etc
 - Maintenance log - a place to log a maintenance operation i.e. if you serviced the water boiler, log that that happened. 
-
-
+- Native application so that people can download
