@@ -2,7 +2,7 @@ const express = require('express');
 const api = express();
 const port = 3000;
 const { Client } = require('pg');
-const client = new Client();
+const client = new Client({ database: 'devDB'});
 
 client.connect();
 client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
