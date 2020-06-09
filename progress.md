@@ -1,7 +1,6 @@
 # Progress
 
 ## To Do
-  - Decide between a TDD vs BDD approach
 
 ## In Progress
   - Create initial documentation including: MVPs, Schema, Problem Definition and Requirements.
@@ -14,3 +13,5 @@
   - Decided: Use Jest and Puppeteer
     - https://github.com/puppeteer/puppeteer
     - https://github.com/facebook/jest
+- Decide between a TDD vs BDD approach
+  - TDD
