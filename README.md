@@ -15,3 +15,6 @@ This application will be used by the Vipassana Medidataion Center (Dhamma Dhara)
 - AWS S3 for thumbnail and photo images that are uploaded
 - Jest and Puppeteer for unit, integration, and end to end testing
 
+## Running Migrations Locally
+
+DATABASE_URL=postgres://jonahlipsky@localhost:5432/devDB npm run migrate up
