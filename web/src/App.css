@@ -54,3 +54,12 @@
   border: 1px solid black;
   padding: 0px;
 }
+
+.edit-todo{
+  display: flex;
+  justify-content: center;
+}
+
+.modal-closed{
+  display: none;
+}

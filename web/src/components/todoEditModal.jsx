@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaCheck, FaTimes } from 'react-icons/fa'
 
 class TodoEditModal extends Component{
   constructor(props){
@@ -7,7 +8,7 @@ class TodoEditModal extends Component{
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(prevProps.todo != this.props.todo){
+    if(prevProps.todo != this.props.todo && this.props.todo){
       this.setState({ id: this.props.todo.id, name: this.props.todo.name })
     }
   }
@@ -16,15 +17,25 @@ class TodoEditModal extends Component{
     this.setState({[e.target.name]: e.target.value})
   }
 
+  saveChange(){
+    
+  }
+
+  closeModal(){
+    this.props.closeModal()
+  }
+
   render(){
     let name = this.state.name;
 
     return(
       <>
-        <div className="edit-todo">
+        <div className={this.props.modalClass}>
           <label htmlFor="todo-edit-input-name">
             <input id="todo-edit-input-name" name="name" type="text" value={name} onChange={value => this.onChange(value)} />
           </label>
+          <FaCheck className="fa"/>
+          <FaTimes onClick={() => this.closeModal()} className="fa"/>
         </div>
       </>
     )

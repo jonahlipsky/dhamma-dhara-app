@@ -38,7 +38,12 @@ class Todos extends Component{
     let todos = this.state.todos.map(todo => {
       return <li className="list-item" key={todo.id}><Todo  todo={todo} id={todo.id} name={todo.name} showModal={this.showModal}/></li>
     })
-    let modal = <TodoEditModal todo={this.state.edit}/>
+
+    let modalClass="edit-todo modal-closed";
+    if(this.state.edit != null){
+      modalClass = "edit-todo modal-open"
+    }
+    let modal = <TodoEditModal modalClass={modalClass} todo={this.state.edit} closeModal={this.closeModal}/>
 
     return (
       <div className="todos">
