@@ -10,8 +10,8 @@ class Todo extends Component{
   render(){
     return(
       <>
-        <FaPencilAlt />
-        <FaTrash />
+        <FaPencilAlt className="fa" onClick={e => this.props.showModal(this.props.todo)} />
+        <FaTrash className="fa" />
         <div className="list-item-details">Id: {this.props.id} name: {this.props.name}</div>
       </>
     )

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Todo from './todo'
+import TodoEditModal from './todoEditModal';
 
 class Todos extends Component{
   constructor(props){
     super(props)
     this.state = {
-      todos: []
+      todos: [],
+      edit: null
     };
   }
 
@@ -24,16 +26,26 @@ class Todos extends Component{
     return body;
   }
 
+  showModal = todo => {
+    this.setState({ edit: todo })
+  }
+
+  closeModal = () => {
+    this.setState({ edit: null })
+  }
+
   render(){
-    console.log(this.state.todos)
     let todos = this.state.todos.map(todo => {
-      return <li className="list-item" key={todo.id}><Todo id={todo.id} name={todo.name}/></li>
+      return <li className="list-item" key={todo.id}><Todo  todo={todo} id={todo.id} name={todo.name} showModal={this.showModal}/></li>
     })
+    let modal = <TodoEditModal todo={this.state.edit}/>
+
     return (
       <div className="todos">
         <ul>
           {todos}
         </ul>
+        {modal}
       </div>
     );
   }
