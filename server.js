@@ -1,6 +1,6 @@
 const express = require('express');
 const api = express();
-const port = 3000;
+const port = 4000;
 const { Client } = require('pg');
 const client = new Client({ database: 'devDB'});
 
