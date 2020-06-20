@@ -16,8 +16,8 @@ This application will be used by the Vipassana Medidataion Center (Dhamma Dhara)
 - Jest and Puppeteer for unit, integration, and end to end testing
 
 ## Packages used
-- react-icons for icons on the frontend
-- node-pg-migrate for making and executing migrations to the postgres database
+- [react-icons](https://react-icons.github.io/react-icons/) for icons on the frontend
+- [node-pg-migrate](https://github.com/salsita/node-pg-migrate) for making and executing migrations to the postgres database
 
 ## Running Migrations Locally
 
