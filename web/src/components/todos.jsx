@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './todo'
 import TodoEditModal from './todoEditModal';
+import { getTodos } from '../actions/todo_actions'
 
 class Todos extends Component{
   constructor(props){
@@ -18,7 +19,8 @@ class Todos extends Component{
   }
 
   getTodos = async () => {
-    const response = await fetch('/todos');
+    const response = await this.props.getTodos();
+    debugger
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message) 
