@@ -13,19 +13,13 @@ class Todos extends Component{
   }
 
   componentDidMount(){
-    this.getTodos()
-      .then(res => this.setState({ todos: res }))
-      .catch(err => console.log(err));
+    this.props.getTodos()
   }
 
-  getTodos = async () => {
-    const response = await this.props.getTodos();
-    debugger
-    const body = await response.json();
-    if (response.status !== 200) {
-      throw Error(body.message) 
+  componentDidUpdate(prevProps){
+    if(prevProps.todos !== this.props.todos){
+      this.setState({ todos: this.props.todos })
     }
-    return body;
   }
 
   showModal = todo => {

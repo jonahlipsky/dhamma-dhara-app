@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { getTodos } from '../actions/todo_actions';
 import Todos from './todos'
 
-const msp = (state, ownProps) => {
-  return({})
+const mapStateToProps = (state, ownProps) => {
+  let todos = Object.values(state.todos)
+  return({ todos })
 }
 
-const mdp = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   getTodos: () => dispatch(getTodos())
 })
 
-export default withRouter(connect(msp, mdp)(Todos));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Todos));

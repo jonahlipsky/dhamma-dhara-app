@@ -10,6 +10,7 @@ export default ( state = {}, action ) => {
       action.todos.forEach( todo => {
         newState = merge(newState, {[todo.id]: todo})
       })
+      return newState;
     case FETCH_TODOS:
       console.log("Fetching todos!")
     default:
