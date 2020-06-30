@@ -19,6 +19,7 @@ api.get('/todos', (req, routeRes) => {
   client2.query('SELECT * FROM todos', async (err, res) => {
     if (err) {
       console.log('Failed to query todos')
+      routeRes.send('Failure')
     } else {
       console.log(res.rows[0])
       console.log(res.rows)

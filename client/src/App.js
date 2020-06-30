@@ -10,6 +10,15 @@ class App extends React.Component {
       todos: []
     };
   }
+
+  componentDidMount(){
+    fetch('/todos')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        console.log('hello world')
+      })
+  }
   
   render(){
     return (
