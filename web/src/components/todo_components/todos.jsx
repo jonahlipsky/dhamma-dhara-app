@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Todo from './todo'
 import TodoEditModal from './todoEditModal';
-import { getTodos } from '../actions/todo_actions'
+import { getTodos } from '../../actions/todo_actions'
 
 class Todos extends Component{
   constructor(props){

@@ -70,3 +70,49 @@
   height: 100px;
   background: gray;
 }
+
+/* MAP CSS */
+
+
+#main-map-image{
+  width: 25%;
+  height: auto;
+  background: gray;
+  padding: 10px;
+}
+
+g{
+  stroke-miterlimit:10;
+  fill: lightgray;
+  stroke: gray;
+}
+
+.selected{
+  fill: darkblue;
+}
+
+.hover{
+  stroke: lightgreen;
+}
+
+.hidden{
+  opacity: 0;
+}
+
+.shown{
+  opacity: 1;
+}
+
+#pointer{
+  width: 200px;
+  height: 30px;
+  background: darkgray;
+  border: 1px solid gray;
+  position: absolute;
+}
+
+svg{
+  width: 400px;
+  height: auto;
+  position: center;
+}

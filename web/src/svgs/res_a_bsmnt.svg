@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.71 150.67">
+  <defs>
+    <!-- <style>.cls-1{fill:none;stroke:#231f20;stroke-miterlimit:10;}</style> -->
+  </defs>
+  <title>RES A BSMT</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="RES_A_BSMT" data-name="RES A BSMT">
+      <polygon id="RES_A_BSMT-2" data-name="RES A BSMT" class="cls-1" points="13.35 12.01 40.54 0.65 46.54 13.67 49.48 12.65 55.23 25.29 59.82 23.75 70.29 49.03 65.31 51.2 76.8 79.54 81.14 78.01 93.01 107.11 88.29 108.9 96.08 130.6 77.82 137.24 47.56 150.01 15.65 70.73 11.44 72.52 1.23 46.09 5.44 44.31 0.59 32.69 6.71 26.18 17.69 22.09 13.35 12.01"/>
+      <polygon id="ELECTRICAL_ROOM_1" data-name="ELECTRICAL ROOM 1" class="cls-1" points="93.01 107.11 70.24 116.26 58.83 86.44 81.14 78.01 93.01 107.11"/>
+      <polygon id="LAUNDRY_ROOM" data-name="LAUNDRY ROOM" class="cls-1" points="70.29 49.03 48.33 56.95 38.52 32.2 59.82 23.75 70.29 49.03"/>
+      <polygon id="BOILER_ROOM" data-name="BOILER ROOM" class="cls-1" points="75.29 75.03 58.33 81.94 48.52 57.2 64.82 50.75 75.29 75.03"/>
+      <g id="ELECTRICAL_ROOM_2" data-name="ELECTRICAL ROOM 2">
+        <polygon class="cls-1" points="1.23 46.09 23.93 36.65 34.72 63.29 28.59 65.72 11.44 72.52 1.23 46.09"/>
+      </g>
+      <g id="L5">
+        <polygon class="cls-1" points="34.72 63.29 41.7 80.1 22.36 87.39 15.65 70.73 34.72 63.29"/>
+      </g>
+      <g id="L1">
+        <polygon class="cls-1" points="87.72 109.29 94.7 126.1 75.36 133.39 68.65 116.73 87.72 109.29"/>
+      </g>
+      <g id="L2">
+        <polygon class="cls-1" points="55.72 114.29 62.7 131.1 43.36 138.39 36.65 121.73 55.72 114.29"/>
+      </g>
+      <g id="L3">
+        <polygon class="cls-1" points="48.72 97.29 55.74 114 36.4 121.29 29.65 104.73 48.72 97.29"/>
+      </g>
+      <g id="L4">
+        <polygon class="cls-1" points="41.35 79.61 48.33 96.42 29.5 103.64 22.79 86.98 41.35 79.61"/>
+      </g>
+    </g>
+  </g>
+  
+</svg>

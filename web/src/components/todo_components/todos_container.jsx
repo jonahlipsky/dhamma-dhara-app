@@ -1,6 +1,6 @@
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { getTodos } from '../actions/todo_actions';
+import { getTodos } from '../../actions/todo_actions';
 import Todos from './todos'
 
 const mapStateToProps = (state, ownProps) => {

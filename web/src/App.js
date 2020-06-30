@@ -1,5 +1,6 @@
 import React from 'react';
-import Todos from './components/todos_container'
+import Todos from './components/todo_components/todos_container'
+import Map from './components/map_components/map'
 import './App.css';
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
   render(){
     return (
       <div id="app">
-        <Todos />
+        <Map />
       </div>
     );
   }
