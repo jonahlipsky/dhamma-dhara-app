@@ -7,7 +7,7 @@
     "test": "test",
     "migrate": "node-pg-migrate",
     "start": "node server.js",
-    "heroku-postbuild": "yarn install && cd client && yarn install --only-dev && yarn install && yarn run build"
+    "heroku-postbuild": "yarn install"
   },
   "engines": {
     "node": ">=12.0.0",
