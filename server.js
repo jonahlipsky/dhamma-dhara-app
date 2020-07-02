@@ -1,8 +1,9 @@
 const express = require('express');
 const api = express();
 const port = 4000;
+require('dotenv').config()
 const { Client } = require('pg');
-const client = new Client({ database: 'devDB'});
+const client = new Client({ database: process.env.POSTGRES_NAME});
 
 client.connect();
 client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
@@ -13,7 +14,7 @@ client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
 api.get('/', (req, res) => res.send('hello world'));
 
 api.get('/todos', (req, routeRes) => {
-  let client2 = new Client({ database: 'devDB'});
+  let client2 = new Client({ database: process.env.POSTGRES_NAME});
   client2.connect()
   let response;
   client2.query('SELECT * FROM todos', async (err, res) => {
