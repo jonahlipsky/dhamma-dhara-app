@@ -1,6 +1,6 @@
 const express = require('express');
 const api = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 require('dotenv').config()
 const { Client } = require('pg');
 const client = new Client({
