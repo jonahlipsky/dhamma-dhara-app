@@ -27,3 +27,8 @@ First you need to configure your local postgres database. Then you need to creat
 }
 
 Then run: `npm run migrate up`
+
+
+## To connect to heroku, if you have access
+
+`heroku run bash`
