@@ -3,7 +3,12 @@ const api = express();
 const port = 4000;
 require('dotenv').config()
 const { Client } = require('pg');
-const client = new Client({ database: process.env.POSTGRES_NAME});
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
 client.connect();
 client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
