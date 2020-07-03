@@ -21,4 +21,9 @@ This application will be used by the Vipassana Medidataion Center (Dhamma Dhara)
 
 ## Running Migrations Locally
 
-DATABASE_URL=postgres://jonahlipsky@localhost:5432/devDB npm run migrate up
+First you need to configure your local postgres database. Then you need to create an .env file that contains:
+{
+  "DATABASE_ULR": "postgres://[username:password]@localhost:5432/[databasename]"
+}
+
+Then run: `npm run migrate up`
