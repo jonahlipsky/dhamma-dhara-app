@@ -3,28 +3,39 @@ const api = express();
 const port = process.env.PORT || 4000;
 require('dotenv').config()
 const { Client } = require('pg');
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-});
 const cors = require('cors')
 const { graphqlHTTP } = require('express-graphql');
-const { graphql, buildSchema } = require('graphql');
+const { buildSchema } = require('graphql');
 const schema = buildSchema(`
+  type Todo {
+    id: ID!
+    name: String!
+  },
+  input TodoInput {
+    name: String
+  },
   type Query {
     hello: String
-    todos: [Todo]
-  },
-  type Todo {
-    name: String!
+    getTodos: [Todo]
   }
 `);
+
+class Todo {
+  constructor(id, { name }){
+    this.id = id;
+    this.name = name
+  }
+}
 
 const root = {
   hello: () => {
     return 'Hello World!';
   },
-  todos: () => {
-    return [{name: "hello"}, {name:"world"}]
+  getTodos: async () => {
+    console.log('getting todos')
+    let todos = await getAllTodos()
+    console.log(todos)
+    return todos
   }
 };
 
@@ -39,18 +50,17 @@ api.use(
 );
 
 async function getAllTodos () {
-  let client2 = new Client({ database: process.env.POSTGRES_NAME});
-  client2.connect()
+  let client = new Client({ database: process.env.POSTGRES_NAME});
+  client.connect()
   let response;
-  client2.query('SELECT * FROM todos', async (err, res) => {
+  await client.query('SELECT * FROM todos', (err, res) => {
     if (err) {
       console.log('Failed to query todos')
-      routeRes.send('Failure')
     } else {
-      console.log(res.rows[0])
+      console.log('Querying for todos')
       console.log(res.rows)
       response = res.rows
-      console.log('sending response')
+      client.end()
       return response
     }
   })
