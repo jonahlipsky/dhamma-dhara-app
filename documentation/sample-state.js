@@ -3,27 +3,18 @@ sample_state = {
     1: { 
       id: 1,
       login: "lysha",
-      admin: 1,
-      superadmin: 1
+      admin: 2,
       }, 
     2: { 
       id: 2,
-      login: "server",
+      login: "Server",
       admin: 0,
-      superadmin: 0
     },
     3: {
       id: 3,
       login: "VMC Staff",
       admin: 1, 
-      superadmin: 0
     },
-    4: {
-      id: 4,
-      login: "Server",
-      admin: 0,
-      superadmin: 0
-    }
   },
   "locations": {
     1: {

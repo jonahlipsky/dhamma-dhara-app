@@ -7,23 +7,23 @@ const cors = require('cors')
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 const schema = buildSchema(`
-  type Todo {
+  type User {
     id: ID!
-    name: String!
+    login: String!
   },
-  input TodoInput {
-    name: String
+  input UserInput {
+    login: String
   },
   type Query {
     hello: String
-    getTodos: [Todo]
+    getUsers: [User]
   }
 `);
 
-class Todo {
-  constructor(id, { name }){
+class User {
+  constructor(id, { login }){
     this.id = id;
-    this.name = name
+    this.login = login
   }
 }
 
@@ -31,11 +31,11 @@ const root = {
   hello: () => {
     return 'Hello World!';
   },
-  getTodos: async () => {
-    console.log('getting todos')
-    let todos = await getAllTodos()
-    console.log(todos)
-    return todos
+  getUsers: async () => {
+    console.log('getting users')
+    let users = await getAllUsers()
+    console.log(users)
+    return users
   }
 };
 
@@ -49,27 +49,17 @@ api.use(
   }),
 );
 
-async function getAllTodos () {
+async function getAllUsers () {
   let client = new Client({ database: process.env.POSTGRES_NAME});
   client.connect()
-  let response;
-  await client.query('SELECT * FROM todos', (err, res) => {
-    if (err) {
-      console.log('Failed to query todos')
-    } else {
-      console.log('Querying for todos')
-      console.log(res.rows)
-      response = res.rows
-      client.end()
-      return response
-    }
-  })
+  let data = await client.query('SELECT * FROM users')
+  return data.rows
 }
 
 // api.get('/', (req, res) => res.send('hello world'));
 
-// api.get('/todos', (req, routeRes) => {
-//   response = await getAllTodos()
+// api.get('/users', (req, routeRes) => {
+//   response = await getAllusers()
 //   routeRes.send(response)
 // })
 
