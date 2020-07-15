@@ -17,15 +17,11 @@ const schema = buildSchema(`
   type Query {
     hello: String
     getUsers: [User]
+  },
+  type Mutation {
+    createUser(input: UserInput): User
   }
 `);
-
-class User {
-  constructor(id, { login }){
-    this.id = id;
-    this.login = login
-  }
-}
 
 const root = {
   hello: () => {
@@ -34,8 +30,12 @@ const root = {
   getUsers: async () => {
     console.log('getting users')
     let users = await getAllUsers()
-    console.log(users)
     return users
+  },
+  createUser: async ({input}) => {
+    console.log('creating user')
+    let newUser = await createUser(input)
+    return newUser
   }
 };
 
@@ -54,6 +54,13 @@ async function getAllUsers () {
   client.connect()
   let data = await client.query('SELECT * FROM users')
   return data.rows
+}
+
+async function createUser (input) {
+  let client = new Client({ database: process.env.POSTGRES_NAME});
+  client.connect();
+  let data = await client.query('INSERT INTO users(login) VALUES($1) RETURNING *', [input.login])
+  return data.rows[0]
 }
 
 // api.get('/', (req, res) => res.send('hello world'));
