@@ -12,6 +12,7 @@ const schema = buildSchema(`
     login: String!
   },
   input UserInput {
+    id: ID
     login: String
   },
   type Query {
@@ -19,7 +20,8 @@ const schema = buildSchema(`
     getUsers: [User]
   },
   type Mutation {
-    createUser(input: UserInput): User
+    createUser(input: UserInput): User,
+    updateUser(input: UserInput): User
   }
 `);
 
@@ -36,6 +38,11 @@ const root = {
     console.log('creating user')
     let newUser = await createUser(input)
     return newUser
+  },
+  updateUser: async ({input}) => {
+    console.log('updating user')
+    let updatedUser = await updateUser(input)
+    return updatedUser
   }
 };
 
@@ -60,6 +67,14 @@ async function createUser (input) {
   let client = new Client({ database: process.env.POSTGRES_NAME});
   client.connect();
   let data = await client.query('INSERT INTO users(login) VALUES($1) RETURNING *', [input.login])
+  return data.rows[0]
+}
+
+async function updateUser (input) {
+  let client = new Client({ database: process.env.POSTGRES_NAME});
+  client.connect();
+  console.log(input)
+  let data = await client.query('UPDATE users SET login = $1 WHERE id = $2 RETURNING *', [input.login, input.id])
   return data.rows[0]
 }
 
