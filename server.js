@@ -21,7 +21,8 @@ const schema = buildSchema(`
   },
   type Mutation {
     createUser(input: UserInput): User,
-    updateUser(input: UserInput): User
+    updateUser(input: UserInput): User,
+    deleteUser(input: UserInput): User
   }
 `);
 
@@ -31,7 +32,7 @@ const root = {
   },
   getUsers: async () => {
     console.log('getting users')
-    let users = await getAllUsers()
+    let users = await getUsers()
     return users
   },
   createUser: async ({input}) => {
@@ -43,6 +44,11 @@ const root = {
     console.log('updating user')
     let updatedUser = await updateUser(input)
     return updatedUser
+  },
+  deleteUser: async ({input}) => {
+    console.log('deleting user')
+    let deletedUser = await deleteUser(input)
+    return deletedUser
   }
 };
 
@@ -56,7 +62,7 @@ api.use(
   }),
 );
 
-async function getAllUsers () {
+async function getUsers () {
   let client = new Client({ database: process.env.POSTGRES_NAME});
   client.connect()
   let data = await client.query('SELECT * FROM users')
@@ -78,10 +84,18 @@ async function updateUser (input) {
   return data.rows[0]
 }
 
+async function deleteUser (input) {
+  let client = new Client({ database: process.env.POSTGRES_NAME});
+  client.connect();
+  console.log(input)
+  let data = await client.query('DELETE FROM users WHERE id = $1 RETURNING *', [input.id])
+  return data.rows[0]  
+}
+
 // api.get('/', (req, res) => res.send('hello world'));
 
 // api.get('/users', (req, routeRes) => {
-//   response = await getAllusers()
+//   response = await getusers()
 //   routeRes.send(response)
 // })
 
