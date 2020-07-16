@@ -92,11 +92,4 @@ async function deleteUser (input) {
   return data.rows[0]  
 }
 
-// api.get('/', (req, res) => res.send('hello world'));
-
-// api.get('/users', (req, routeRes) => {
-//   response = await getusers()
-//   routeRes.send(response)
-// })
-
 api.listen(port, () => console.log(`Listening on port ${port}`));
