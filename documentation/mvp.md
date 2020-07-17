@@ -14,6 +14,7 @@
 - SVG upload portal
 
 ## Bonus Features
+- Pinpoint locations -- a location can be added to the map independent of the room that it is in. 
 - Centers. 
   - Create a specification document so that a designer from a different center can create a set of SVG files autonomously, upload them, and have them appear correctly. 
   - Different centers can be opened up and have separate data entirely including user roles and admin roles. 
