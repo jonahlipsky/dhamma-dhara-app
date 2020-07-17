@@ -3,9 +3,8 @@
 ## To Do
 
 ## In Progress
-  - Create initial documentation including: MVPs, Schema, Problem Definition and Requirements.
+
   - Create backend and frontend framework.
-  - Create documentation of a sample of frontend state
 
 ## Done
 - Decided on frontend and backend testing testing frameworks
@@ -15,3 +14,5 @@
     - https://github.com/facebook/jest
 - Decide between a TDD vs BDD approach
   - TDD
+- Create documentation of a sample of frontend state
+- Create initial documentation including: MVPs, Schema, Problem Definition and Requirements.
