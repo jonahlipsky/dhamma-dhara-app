@@ -6,10 +6,12 @@ const { Client } = require('pg');
 const cors = require('cors')
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
+const userQueries = require('./db/queries/userQueries')
 const schema = buildSchema(`
   type User {
     id: ID!
     login: String!
+    admin: Int!
   },
   input UserInput {
     id: ID
@@ -32,22 +34,22 @@ const root = {
   },
   getUsers: async () => {
     console.log('getting users')
-    let users = await getUsers()
+    let users = await userQueries.getUsers()
     return users
   },
   createUser: async ({input}) => {
     console.log('creating user')
-    let newUser = await createUser(input)
+    let newUser = await userQueries.createUser(input)
     return newUser
   },
   updateUser: async ({input}) => {
     console.log('updating user')
-    let updatedUser = await updateUser(input)
+    let updatedUser = await userQueries.updateUser(input)
     return updatedUser
   },
   deleteUser: async ({input}) => {
     console.log('deleting user')
-    let deletedUser = await deleteUser(input)
+    let deletedUser = await userQueries.deleteUser(input)
     return deletedUser
   }
 };
@@ -61,35 +63,5 @@ api.use(
     graphiql: true,
   }),
 );
-
-async function getUsers () {
-  let client = new Client({ database: process.env.POSTGRES_NAME});
-  client.connect()
-  let data = await client.query('SELECT * FROM users')
-  return data.rows
-}
-
-async function createUser (input) {
-  let client = new Client({ database: process.env.POSTGRES_NAME});
-  client.connect();
-  let data = await client.query('INSERT INTO users(login) VALUES($1) RETURNING *', [input.login])
-  return data.rows[0]
-}
-
-async function updateUser (input) {
-  let client = new Client({ database: process.env.POSTGRES_NAME});
-  client.connect();
-  console.log(input)
-  let data = await client.query('UPDATE users SET login = $1 WHERE id = $2 RETURNING *', [input.login, input.id])
-  return data.rows[0]
-}
-
-async function deleteUser (input) {
-  let client = new Client({ database: process.env.POSTGRES_NAME});
-  client.connect();
-  console.log(input)
-  let data = await client.query('DELETE FROM users WHERE id = $1 RETURNING *', [input.id])
-  return data.rows[0]  
-}
 
 api.listen(port, () => console.log(`Listening on port ${port}`));
