@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 
-const userQueries = {
+module.exports = {
   getUsers: async function getUsers () {
     let client = new Client({ database: process.env.POSTGRES_NAME});
     client.connect()
@@ -28,5 +28,3 @@ const userQueries = {
     return data.rows[0]  
   }
 }
-
-module.exports = userQueries;
