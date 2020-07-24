@@ -1,6 +1,9 @@
 # Progress
 
 ## To Do
+- Set up testing framework
+- Create map api
+- Create authentication system
 
 ## In Progress
 
