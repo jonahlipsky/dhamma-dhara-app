@@ -7,6 +7,8 @@ const { graphqlHTTP } = require('express-graphql');
 const schema = require('./db/graphql_schema');
 const root = require('./db/graphql_root');
 
+console.log(process.env.NODE_ENV)
+
 api.use(cors())
 api.use(
   '/graphql',
