@@ -1,15 +1,14 @@
 # Progress
 
 ## To Do
-- Set up testing framework
-- Create map api
+- Create map feature
 - Create authentication system
 
 ## In Progress
-
-  - Create backend and frontend framework.
+- Set up testing framework
 
 ## Done
+- Create backend and frontend framework.
 - Decided on frontend and backend testing testing frameworks
   - unit, integration and end-to-end tests
   - Decided: Use Jest and Puppeteer
