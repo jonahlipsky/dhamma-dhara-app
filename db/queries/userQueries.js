@@ -1,8 +1,6 @@
 const { Client } = require('pg');
 require('dotenv').config()
 
-let connection_string;
-
 module.exports = {
   getUsers: async function getUsers () {
     let client = new Client();

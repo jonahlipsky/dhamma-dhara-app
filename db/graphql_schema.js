@@ -10,6 +10,7 @@ module.exports = buildSchema(`
     id: ID
     login: String
     admin: Int
+    password: String
   },
   type Query {
     hello: String

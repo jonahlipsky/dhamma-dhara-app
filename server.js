@@ -1,16 +1,23 @@
 const express = require('express');
-const api = express();
-const port = process.env.PORT || 4000;
-require('dotenv').config()
-const cors = require('cors')
+const session = require('express-session');
+const app = express();
+import { PORT, NODE_ENV, SESSION_SECRET } from './config';
+require('dotenv').config();
+const cors = require('cors');
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./db/graphql_schema');
 const root = require('./db/graphql_root');
 
-console.log(process.env.NODE_ENV)
+console.log(NODE_ENV);
 
-api.use(cors())
-api.use(
+// app.disable('x-powered-by');
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(cors())
+
+app.use(session({ secret: SESSION_SECRET, cookie: { maxAge: 60000 } }));
+
+app.use(
   '/graphql',
   graphqlHTTP({
     schema: schema,
@@ -19,4 +26,4 @@ api.use(
   }),
 );
 
-api.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
