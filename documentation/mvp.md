@@ -16,13 +16,13 @@
     - Create a specification document so that a designer from a different center can create a set of SVG files autonomously, upload them, and have them appear correctly. 
 - Item upload portal (upload a spreadsheet of maintenance items mapped to rooms)
 - SVG upload portal (upload an SVG along with the building/level/room key spreadsheets)
+- Reset password workflow (a user can reset their password)
+- Email change workflow (change the email for a user)
 
 ## Bonus Features
 - Map maintenance (edit and update the map)
 - Admin can enable / disable a user
-- Email change workflow (change the email for a user)
 - Search by rooms (can search by room as well as by maintenance item)
-- Reset password workflow (a user can reset their password)
 - Maintenance item sub-categories (maintenance items can be filtered by sub-category)
 - Ability to zoom in the map
 - Pinpoint locations -- a location can be added to the map independent of the room that it is in. 
