@@ -14,8 +14,11 @@
   - Create a specification document so that a designer from a different center can create a set of SVG files autonomously, upload them, and have them appear correctly. 
   - Different centers can be opened up and have separate data entirely including user roles and admin roles. 
 - Superadmin role to manage the different centers and admins
+- Item upload portal
+- SVG upload portal
 
 ## Bonus Features
+- Map maintenance
 - Enable / disable a user
 - Email change workflow
 - Search by rooms
@@ -26,7 +29,6 @@
 - Maintenance history
 - Access to vimeo and google docs, google sheets, should be controlled by App if possible
 - Pinpoint locations -- a location can be added to the map independent of the room that it is in. 
-- SVG upload portal
 - Track recurring tasks and send notifications when they come due
 - “Marauder’s Map” with GPS see where you are on the map in the center in real time
 - Messages sent to other users
