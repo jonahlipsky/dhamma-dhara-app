@@ -1,4 +1,4 @@
-# Minimum Viable Product & Bonus Features
+# Minimum Viable Product & Phase Two Features
 
 ## MVPs
 - Search bar that picks up a list of maintenance appliances.
@@ -19,7 +19,7 @@
 - Reset password workflow (a user can reset their password)
 - Email change workflow (a user can change their primary email for their account)
 
-## Bonus Features
+## Phase Two Features
 - Map maintenance (edit and update the map)
 - Admin can enable / disable a user
 - Search by rooms (can search by room as well as by maintenance item)
