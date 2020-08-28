@@ -1,4 +1,4 @@
-# Minimum Viable Product & Bonus
+# Minimum Viable Product & Bonus Features
 
 ## MVPs
 - Search bar that picks up a list of maintenance appliances.
