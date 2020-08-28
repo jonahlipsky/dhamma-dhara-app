@@ -3,19 +3,19 @@
 ## MVPs
 - Search bar that picks up a list of maintenance appliances.
 - Map of the center. You can toggle different levels. 
-  - CRUD for naming of the rooms. 
+  - CRUD (create, read, update, destroy) for naming of the rooms. 
 - Maintenance appliances. Can select a maintenance appliance and have the room(s) where that appliance exists become highlighted across all levels (and buildings in bonus features). 
   - If you are looking at a level and the appliance exists on a different level as well, a notification should appear that says it also exists on those other levels. 
   - Videos, Google Docs. Selecting a maintenance appliance, you see a short description, and a link to a vimeo set of videos and a link to a google doc for information related to the appliance. 
-- Admin role and viewer role. Admin can CRUD all of the objects in the system. Viewer can just view.
-- Authentication
-- Authorization
+- Authentication (log in / log out)
+- Authorization (server / admin / superadmin access)
+  - Admin role and viewer role. Admin can CRUD all of the objects in the system. Viewer can just view.
+  - Superadmin role to manage the different centers and admins
 - Centers. 
-  - Create a specification document so that a designer from a different center can create a set of SVG files autonomously, upload them, and have them appear correctly. 
   - Different centers can be opened up and have separate data entirely including user roles and admin roles. 
-- Superadmin role to manage the different centers and admins
-- Item upload portal
-- SVG upload portal
+    - Create a specification document so that a designer from a different center can create a set of SVG files autonomously, upload them, and have them appear correctly. 
+- Item upload portal (upload a spreadsheet of maintenance items mapped to rooms)
+- SVG upload portal (upload an SVG along with the building/level/room key spreadsheets)
 
 ## Bonus Features
 - Map maintenance
