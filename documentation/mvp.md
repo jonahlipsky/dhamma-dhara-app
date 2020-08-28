@@ -18,21 +18,22 @@
 - SVG upload portal (upload an SVG along with the building/level/room key spreadsheets)
 
 ## Bonus Features
-- Map maintenance
-- Enable / disable a user
-- Email change workflow
-- Search by rooms
-- Reset password workflow
-- Maintenance item sub-categories
-- Buildings as different SVGs
-- Zoom in the map
+- Map maintenance (edit and update the map)
+- Admin can enable / disable a user
+- Email change workflow (change the email for a user)
+- Search by rooms (can search by room as well as by maintenance item)
+- Reset password workflow (a user can reset their password)
+- Maintenance item sub-categories (maintenance items can be filtered by sub-category)
+- Ability to zoom in the map
+- Pinpoint locations -- a location can be added to the map independent of the room that it is in. 
+- Comments on items (a user can add comments to a maintenance item.)
+
+## Other Ideas
 - Maintenance history
 - Access to vimeo and google docs, google sheets, should be controlled by App if possible
-- Pinpoint locations -- a location can be added to the map independent of the room that it is in. 
-- Track recurring tasks and send notifications when they come due
 - “Marauder’s Map” with GPS see where you are on the map in the center in real time
+- Track recurring tasks and send notifications when they come due
 - Messages sent to other users
 - Other types of objects other than maintenance ie housekeeping, etc
 - Maintenance log - a place to log a maintenance operation i.e. if you serviced the water boiler, log that that happened. 
 - Native application so that people can download
-- Comments on items
