@@ -4,8 +4,8 @@ module.exports = {
   Query:{
     getUsers: async () => {
       console.log('getting users')
-      let users = await userQueries.getUsers()
-      return users
+      let users = await userQueries.getUsers();
+      return users;
     },
   },
   Mutation: {

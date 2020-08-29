@@ -1,22 +1,18 @@
-const { Client } = require('pg');
-require('dotenv').config()
-
-let connection_string;
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 module.exports = {
   getUsers: async function getUsers () {
-    let client = new Client();
-    console.log(process.env.DATABASE_URL)
-    console.log(process.env.NODE_ENV)
-    client.connect()
-    let data = await client.query('SELECT * FROM users')
-    return data.rows
+    const users = await prisma.users.findMany();
+    return users;
   },
   createUser: async function createUser (input) {
-    let client = new Client();
-    client.connect();
-    let data = await client.query('INSERT INTO users(login) VALUES($1) RETURNING *', [input.login])
-    return data.rows[0]
+    const user = await prisma.users.create({
+      data: {
+        input
+      }
+    });
+    return user;
   },
   updateUser: async function updateUser (input) {
     let client = new Client({ database: process.env.POSTGRES_NAME});
