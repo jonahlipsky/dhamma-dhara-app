@@ -21,12 +21,9 @@ This application will be used by the Vipassana Medidataion Center (Dhamma Dhara)
 
 ## Running Migrations Locally
 
-First you need to configure your local postgres database. Then you need to create an .env file that contains:
-{
-  "DATABASE_ULR": "postgres://[username:password]@localhost:5432/[databasename]"
-}
+Configure your postgres database in your prisma .env file. Run migrations against the same file. 
 
-Then run: `npm run migrate up`
+DATABASE_URL=postgres://[username:password]@localhost:5432/[databasename] yarn run migrate up
 
 
 ## To connect to heroku, if you have access
