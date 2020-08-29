@@ -2,12 +2,12 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Backend API",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "jest",
     "migrate": "node-pg-migrate",
-    "start": "node src/index.js",
-    "watch": "nodemon src/index.js",
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js",
     "heroku-postbuild": "npm install --production"
   },
   "engines": {
