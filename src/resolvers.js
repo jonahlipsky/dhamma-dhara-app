@@ -1,4 +1,4 @@
-const userQueries = require('./userQueries');
+const userQueries = require('./datasources/userQueries');
 
 module.exports = {
   Query:{
