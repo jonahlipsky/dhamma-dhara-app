@@ -21,3 +21,4 @@ module.exports = buildSchema(`
     deleteUser(input: UserInput): User
   }
 `);
+
