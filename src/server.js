@@ -1,9 +1,15 @@
 require('dotenv').config()
 const { ApolloServer } = require('apollo-server')
 
-const typeDefs = require('./schema.js');
+const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
+const UserAPI = require('./datasources/user');
+const dataSources = () => ({
+  userAPI: new UserAPI()
+});
+
 const port = process.env.PORT;
+
 
 const server = new ApolloServer({
   typeDefs,

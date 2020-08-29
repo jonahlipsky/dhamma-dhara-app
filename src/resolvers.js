@@ -9,6 +9,14 @@ module.exports = {
     },
   },
   Mutation: {
+    login: async (_, { userName }, { dataSources }) => {
+      console.log('logging in');
+      const user = await dataSources.userAPI.findOrCreateUser({ userName });
+      if (user) {
+        user.token = new Buffer(userName).toString('base64');
+        return user;
+      }
+    },
     createUser: async ({input}) => {
       console.log('creating user')
       let newUser = await userQueries.createUser(input)
