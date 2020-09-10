@@ -1,16 +1,33 @@
 const { DataSource } = require('apollo-datasource');
-const { login } = require('./userQueries');
 
 class UserAPI extends DataSource{
-  constructor(){
+  constructor({ store }){
     super();
+    this.store = store;
+  }
+
+  initialize(config) {
+    this.context = config.context;
   }
 
   async findOrCreateUser({ userName: userNameArg } = {}){
     const userName = this.context && this.context.user ? this.context.user.userName : userNameArg;
     if (!userName) return null;
 
-    // const user = await login();
+    let user = await this.store.user.findOne({ 
+      where: {
+        userName
+      }
+     });
+    if(!user){
+      user = await this.store.user.create({
+        data: {
+          userName 
+        }
+      });
+    }
+    return user ? user : null;
   }
-
 }
+
+module.exports = UserAPI;
