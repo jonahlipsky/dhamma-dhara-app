@@ -27,6 +27,9 @@ DATABASE_URL=postgres://[username:password]@localhost:5432/[databasename] yarn r
 
 Creating a migration: [DB INFO] yarn run migrate create this is my migration name
 
+## Introspecting with Prisma
+npx prisma introspect
+
 ## To connect to heroku, if you have access
 
 `heroku run bash`

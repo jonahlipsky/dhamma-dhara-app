@@ -15,7 +15,6 @@ model pgmigrations {
 
 model users {
   id             Int      @default(autoincrement()) @id
-  login          String
   admin          Int      @default(0)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @default(now())
