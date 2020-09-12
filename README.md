@@ -25,6 +25,7 @@ Configure your postgres database in your prisma .env file. Run migrations agains
 
 DATABASE_URL=postgres://[username:password]@localhost:5432/[databasename] yarn run migrate up
 
+Creating a migration: [DB INFO] yarn run migrate create this is my migration name
 
 ## To connect to heroku, if you have access
 

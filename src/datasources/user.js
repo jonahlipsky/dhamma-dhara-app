@@ -30,15 +30,14 @@ class UserAPI extends DataSource{
   }
 
   async getUsers(){
-    const users = await this.store.users.findMany();
+    const users = await this.store.prisma.users.findMany();
     return users;
   }
 
-  async createUser (input){
-    const user = await this.store.users.create({
-      data: {
-        input
-      }
+  async createUser(input){
+    console.log(input)
+    const user = await this.store.prisma.users.create({
+      data: input
     });
     return user;
   }
