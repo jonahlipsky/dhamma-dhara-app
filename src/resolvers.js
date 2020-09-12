@@ -4,7 +4,6 @@ module.exports = {
   Query:{
     getUsers: async (_, __, { dataSources }) => {
       console.log('getting users')
-      console.log(dataSources)
       let users = await dataSources.userAPI.getUsers();
       return users;
     },
