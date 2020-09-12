@@ -5,6 +5,7 @@ const typeDefs = gql`
     id: ID!
     username: String!
     admin: Int!
+    token: String
   },
   input UserInput {
     id: ID
@@ -15,7 +16,7 @@ const typeDefs = gql`
     getUsers: [User]
   },
   type Mutation {
-    login(input: String): User,
+    loginUser(input: String): User,
     createUser(input: UserInput): User,
     updateUser(input: UserInput): User,
     deleteUser(input: UserInput): User

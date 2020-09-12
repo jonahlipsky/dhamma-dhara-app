@@ -10,19 +10,23 @@ class UserAPI extends DataSource{
     this.context = config.context;
   }
 
-  async findOrCreateUser({ userName: userNameArg } = {}){
-    const userName = this.context && this.context.user ? this.context.user.userName : userNameArg;
-    if (!userName) return null;
+  async findOrCreateUser({ username } = {}){
+    const usernameArg = this.context && this.context.user ? this.context.user.username : username;
+    if (!usernameArg) return null;
 
-    let user = await this.store.user.findOne({ 
+    let user = await this.store.prisma.users.findOne({ 
       where: {
-        userName
+        username: usernameArg
       }
     });
+    if(user[0]){
+      return user[0];
+    }
+
     if(!user){
-      user = await this.store.user.create({
+      user = await this.store.prisma.users.create({
         data: {
-          userName 
+          username: usernameArg 
         }
       });
     }

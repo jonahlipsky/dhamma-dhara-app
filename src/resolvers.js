@@ -9,11 +9,11 @@ module.exports = {
     },
   },
   Mutation: {
-    login: async (_, { userName }, { dataSources }) => {
+    loginUser: async (_, { input }, { dataSources }) => {
       console.log('logging in');
-      const user = await dataSources.userAPI.findOrCreateUser({ userName });
+      const user = await dataSources.userAPI.findOrCreateUser({ username: input });
       if (user) {
-        user.token = new Buffer(userName).toString('base64');
+        user.token = new Buffer(username).toString('base64');
         return user;
       }
     },
