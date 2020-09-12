@@ -6,13 +6,11 @@ const resolvers = require('./resolvers');
 const UserAPI = require('./datasources/user');
 const { createStore } = require('./utils');
 const store = createStore();
-
 const dataSources = () => ({
   userAPI: new UserAPI({ store })
 });
 
 const port = process.env.PORT;
-
 
 const server = new ApolloServer({
   typeDefs,

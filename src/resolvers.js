@@ -2,9 +2,10 @@ const userQueries = require('./datasources/userQueries');
 
 module.exports = {
   Query:{
-    getUsers: async () => {
+    getUsers: async (_, __, { dataSources }) => {
       console.log('getting users')
-      let users = await userQueries.getUsers();
+      console.log(dataSources)
+      let users = await dataSources.userAPI.getUsers();
       return users;
     },
   },
@@ -17,9 +18,9 @@ module.exports = {
         return user;
       }
     },
-    createUser: async ({input}) => {
+    createUser: async (_, { input }, { dataSources }) => {
       console.log('creating user')
-      let newUser = await userQueries.createUser(input)
+      let newUser = await dataSources.userAPI.createUser(input)
       return newUser
     },
     updateUser: async ({input}) => {

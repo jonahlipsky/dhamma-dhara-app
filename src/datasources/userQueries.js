@@ -1,16 +1,5 @@
 module.exports = {
-  getUsers: async function getUsers () {
-    const users = await prisma.users.findMany();
-    return users;
-  },
-  createUser: async function createUser (input) {
-    const user = await prisma.users.create({
-      data: {
-        input
-      }
-    });
-    return user;
-  },
+
   updateUser: async function updateUser (input) {
     let client = new Client({ database: process.env.POSTGRES_NAME});
     client.connect();

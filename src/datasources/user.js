@@ -18,7 +18,7 @@ class UserAPI extends DataSource{
       where: {
         userName
       }
-     });
+    });
     if(!user){
       user = await this.store.user.create({
         data: {
@@ -27,6 +27,20 @@ class UserAPI extends DataSource{
       });
     }
     return user ? user : null;
+  }
+
+  async getUsers(){
+    const users = await this.store.users.findMany();
+    return users;
+  }
+
+  async createUser (input){
+    const user = await this.store.users.create({
+      data: {
+        input
+      }
+    });
+    return user;
   }
 }
 
