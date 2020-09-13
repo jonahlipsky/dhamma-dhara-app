@@ -7,6 +7,10 @@ module.exports = {
       let users = await dataSources.userAPI.getUsers();
       return users;
     },
+    getUser: async (_, { input }, { dataSources }) => {
+      let user = await dataSources.userAPI.getUser({ id: input });
+      return user;
+    }
   },
   Mutation: {
     loginUser: async (_, { input }, { dataSources }) => {

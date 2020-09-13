@@ -10,6 +10,16 @@ class UserAPI extends DataSource{
     this.context = config.context;
   }
 
+  async getUser({ id } = {}){
+    
+    let user = await this.store.prisma.users.findOne({ 
+      where: {
+        id: parseInt(id)
+      }
+    });
+    return user;
+  }
+
   async findOrCreateUser({ username } = {}){
     const usernameArg = this.context && this.context.user ? this.context.user.username : username;
     if (!usernameArg) return null;

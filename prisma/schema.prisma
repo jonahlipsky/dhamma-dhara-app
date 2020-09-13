@@ -20,5 +20,5 @@ model users {
   updatedAt      DateTime @default(now())
   passwordDigest String?
   sessionToken   String?
-  username       String
+  username       String   @unique
 }

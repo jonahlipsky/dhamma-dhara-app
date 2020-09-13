@@ -10,25 +10,24 @@ const dataSources = () => ({
   userAPI: new UserAPI({ store })
 });
 
-const context = async ({ req }) => {
-  const auth = (req.headers && req.headers.authorization) || '';
-  const username = new Buffer(auth, 'base64').toString('ascii');
+// const context = async ({ req }) => {
+//   const auth = (req.headers && req.headers.authorization) || '';
+//   const username = new Buffer(auth, 'base64').toString('ascii');
 
-  // const user = await store.prisma.users.findOne({
-  //   where: {
-  //     username
-  //   }
-  // });
-  const user = null;
+//   // const user = await store.prisma.users.findOne({
+//   //   where: {
+//   //     username
+//   //   }
+//   // });
+//   const user = null;
   
-  return { user };
-};
+//   return { user };
+// };
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
-  context,
   instrospection: true,
   playground: true
 });
@@ -45,7 +44,6 @@ module.exports = {
   typeDefs,
   resolvers,
   dataSources,
-  context,
   ApolloServer,
   UserAPI,
   server,

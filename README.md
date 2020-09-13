@@ -29,6 +29,7 @@ Creating a migration: [DB INFO] yarn run migrate create this is my migration nam
 
 ## Introspecting with Prisma
 npx prisma introspect
+NOTE: To fix a failing schema, it might be necessary to delete node modules and re-install them. Prisma stores some information about the schema in the node modules.
 
 ## To connect to heroku, if you have access
 
