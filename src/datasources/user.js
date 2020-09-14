@@ -29,10 +29,7 @@ class UserAPI extends DataSource{
         username: usernameArg
       }
     });
-    if(user[0]){
-      return user[0];
-    }
-
+    
     if(!user){
       user = await this.store.prisma.users.create({
         data: {

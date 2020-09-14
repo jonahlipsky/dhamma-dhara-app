@@ -17,7 +17,7 @@ module.exports = {
       console.log('logging in');
       const user = await dataSources.userAPI.findOrCreateUser({ username: input });
       if (user) {
-        user.token = new Buffer(username).toString('base64');
+        user.token = new Buffer(input).toString('base64');
         return user;
       }
     },
