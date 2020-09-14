@@ -29,7 +29,7 @@ class UserAPI extends DataSource{
         username: usernameArg
       }
     });
-    
+
     if(!user){
       user = await this.store.prisma.users.create({
         data: {
@@ -37,6 +37,7 @@ class UserAPI extends DataSource{
         }
       });
     }
+    
     return user ? user : null;
   }
 
@@ -46,7 +47,6 @@ class UserAPI extends DataSource{
   }
 
   async createUser(input){
-    console.log(input)
     const user = await this.store.prisma.users.create({
       data: input
     });
