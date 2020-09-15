@@ -31,7 +31,7 @@ const server = new ApolloServer({
   playground: true
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 if(process.env.NODE_ENV !== 'test') {
   server.listen({ port }).then(({ url }) => {
