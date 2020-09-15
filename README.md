@@ -39,3 +39,10 @@ NOTE: To fix a failing schema, it might be necessary to delete node modules and 
 ### Pushing feature branch to heroku master
 
 `git push heroku testbranch:master`
+
+### Connecting directly to heroku postgres DB
+- find the connection string in the settings > view credentials for the database
+
+### Deploying to heroku
+- update environment variables e.g. Prisma Connection string
+  - currently echo'd var into prisma .env. there may be a better way with heroku config
