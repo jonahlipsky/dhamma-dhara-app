@@ -1690,6 +1690,13 @@ apollo-server-plugin-base@^0.9.1:
   dependencies:
     apollo-server-types "^0.5.1"
 
+apollo-server-testing@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-testing/-/apollo-server-testing-2.17.0.tgz#2c569e1584948878f41c39f626376e09d91b1a01"
+  integrity sha512-pb6ijqDbKUkeaJKP6P3sgT24X/1yErbBfobquyzOpkgyRCc93MeAY4xG3woA1/WZHQm0RN8xtsYelEKz05i14g==
+  dependencies:
+    apollo-server-core "^2.17.0"
+
 apollo-server-types@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/apollo-server-types/-/apollo-server-types-0.5.1.tgz#091c09652894d6532db9ba873574443adabf85b9"
@@ -3302,7 +3309,7 @@ graphql-subscriptions@^1.0.0:
   dependencies:
     iterall "^1.2.1"
 
-graphql-tag@^2.9.2:
+graphql-tag@^2.11.0, graphql-tag@^2.9.2:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
   integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
