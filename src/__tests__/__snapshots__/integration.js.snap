@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Queries getUsers fetches a list of users 1`] = `
+Object {
+  "data": Object {
+    "getUsers": Array [
+      Object {
+        "admin": 2,
+        "id": "1",
+        "token": null,
+        "username": "lysha",
+      },
+      Object {
+        "admin": 1,
+        "id": "2",
+        "token": null,
+        "username": "eric",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`getUsers fetches a list of users 1`] = `
+Object {
+  "data": undefined,
+  "errors": Array [
+    [ValidationError: Cannot query field "id" on type "Query".],
+    [ValidationError: Cannot query field "username" on type "Query".],
+    [ValidationError: Cannot query field "admin" on type "Query".],
+    [ValidationError: Cannot query field "token" on type "Query".],
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

@@ -12,7 +12,7 @@ const {
   ApolloServer,
   UserAPI,
   store,
-} = require('../');
+} = require('../server');
 
 /**
  * Integration testing utils
