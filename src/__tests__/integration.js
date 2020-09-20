@@ -91,6 +91,18 @@ describe('Mutations', () => {
   });
   
   describe('updateUser', () => {
+    const UPDATE_USER = gql`
+      mutation updateUser($input: ModifyUserInput){
+        updateUser(input: $input){
+          id, username, admin
+        }
+      }
+    `;
+
+    beforeEach(() => {
+      userAPI.store.prisma.users.findOne.mockReturnValueOnce(superadmin_user)
+      // mock the update request
+    });
 
   });
   describe('deleteUser', () => {
