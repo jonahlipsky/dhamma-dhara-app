@@ -62,13 +62,15 @@ describe('Mutations', () => {
       }
     `;
 
-    it('accesses the prisma client to create a user and returns the newly created user', async () => {
+    it('accesses the prisma client one time with appropriate arguments to create a user and returns the newly created user', async () => {
       const mockServerResponse = superadmin_user;
 
       userAPI.store.prisma.users.create.mockReturnValueOnce(mockServerResponse);
       const returnUser = { id: '1', username: 'lysha', admin: 2 };
       const res = await mutate( { mutation: CREATE_USER, variables: { input: { admin: 2, username: 'lysha' } } } );
       expect(res).toMatchSnapshot();
+      expect(userAPI.store.prisma.users.create.mock.calls[0][0]).toEqual({ data: { admin: 2, username: 'lysha' } });
+      expect(userAPI.store.prisma.users.create.mock.calls[0].length).toEqual(1);
       expect(res.data.createUser).toEqual(returnUser);
     });
   });
