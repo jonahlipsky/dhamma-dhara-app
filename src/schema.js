@@ -7,8 +7,12 @@ const typeDefs = gql`
     admin: Int!
     token: String
   },
-  input UserInput {
-    id: ID
+  input CreateUserInput {
+    admin: Int
+    username: String
+  },
+  input ModifyUserInput {
+    id: ID!
     admin: Int
     username: String
   },
@@ -18,9 +22,9 @@ const typeDefs = gql`
   },
   type Mutation {
     loginUser(input: String): User,
-    createUser(input: UserInput): User,
-    updateUser(input: UserInput): User,
-    deleteUser(input: UserInput): User
+    createUser(input: CreateUserInput): User,
+    updateUser(input: ModifyUserInput): User,
+    deleteUser(input: ModifyUserInput): User
   }
 `;
 

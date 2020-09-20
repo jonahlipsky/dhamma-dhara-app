@@ -1,9 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Mutations createUser accesses the prisma client one time with appropriate arguments to create a user and returns the newly created user 1`] = `
+Object {
+  "data": Object {
+    "createUser": Object {
+      "admin": 2,
+      "id": "1",
+      "username": "lysha",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
 exports[`Mutations createUser accesses the prisma client to create a user and returns the newly created user 1`] = `
 Object {
   "data": Object {
     "createUser": Object {
+      "admin": 2,
+      "id": "1",
+      "username": "lysha",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Queries getUser queries the prisma client once with appropriate arguments and returns the user 1`] = `
+Object {
+  "data": Object {
+    "getUser": Object {
       "admin": 2,
       "id": "1",
       "username": "lysha",

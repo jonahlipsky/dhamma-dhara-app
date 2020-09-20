@@ -28,17 +28,16 @@ describe('Queries', () => {
       }
     `;
 
+    beforeEach(() => {
+      userAPI.store.prisma.users.findMany.mockReturnValueOnce([superadmin_user, admin_user]);
+    });
+
     it('fetches a list of users', async () => {
-      
-      const mockServerResponse = [superadmin_user, admin_user];
-  
       const returnUsers = [
         { id: '1', username: 'lysha', admin: 2, token: null },
         { id: '2', username: 'eric', admin: 1, token: null }
       ];
-  
-      userAPI.store.prisma.users.findMany.mockReturnValueOnce(mockServerResponse);
-      
+            
       const res = await query( { query: GET_USERS } );
       expect(res).toMatchSnapshot();
       expect(res.data.getUsers).toEqual(returnUsers);
@@ -46,32 +45,48 @@ describe('Queries', () => {
   });
   
   describe('getUser', () => {
+    const GET_USER = gql`
+      query getUser($input: ID!){
+        getUser(input: $input){
+          id, username, admin
+        }
+      }
+    `;
 
+    beforeEach(() => {
+      userAPI.store.prisma.users.findOne.mockReturnValueOnce(superadmin_user);
+    });
+
+    it('queries the prisma client once with appropriate arguments and returns the user', async () => {
+      const res = await query( { query: GET_USER, variables: { input: 1 } } );
+      expect(res).toMatchSnapshot();
+      expect(userAPI.store.prisma.users.findOne.mock.calls[0][0]).toEqual({ where: { id: 1 } });
+      expect(userAPI.store.prisma.users.findOne.mock.calls[0].length).toEqual(1);
+      expect(res.data.getUser).toEqual({ id: '1', username: 'lysha', admin: 2 });
+    });
   });
 });
 
 describe('Mutations', () => {
-  
   describe('createUser', () => {
-  
     const CREATE_USER = gql`
-      mutation createUser($input: UserInput){
+      mutation createUser($input: CreateUserInput){
         createUser(input: $input){
           id, username, admin
         }
       }
     `;
 
-    it('accesses the prisma client one time with appropriate arguments to create a user and returns the newly created user', async () => {
-      const mockServerResponse = superadmin_user;
+    beforeEach(() => {
+      userAPI.store.prisma.users.create.mockReturnValueOnce(superadmin_user);
+    });
 
-      userAPI.store.prisma.users.create.mockReturnValueOnce(mockServerResponse);
-      const returnUser = { id: '1', username: 'lysha', admin: 2 };
+    it('accesses the prisma client one time with appropriate arguments to create a user and returns the newly created user', async () => {
       const res = await mutate( { mutation: CREATE_USER, variables: { input: { admin: 2, username: 'lysha' } } } );
       expect(res).toMatchSnapshot();
       expect(userAPI.store.prisma.users.create.mock.calls[0][0]).toEqual({ data: { admin: 2, username: 'lysha' } });
       expect(userAPI.store.prisma.users.create.mock.calls[0].length).toEqual(1);
-      expect(res.data.createUser).toEqual(returnUser);
+      expect(res.data.createUser).toEqual({ id: '1', username: 'lysha', admin: 2 });
     });
   });
   
