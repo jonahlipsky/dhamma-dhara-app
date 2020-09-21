@@ -1,4 +1,5 @@
 const userQueries = require('./datasources/userQueries');
+const { dataSources } = require('./server');
 
 module.exports = {
   Query:{
@@ -28,7 +29,7 @@ module.exports = {
     },
     updateUser: async ({input}) => {
       console.log('updating user')
-      let updatedUser = await userQueries.updateUser(input)
+      let updatedUser = await dataSources.userAPI.updateUser(input);
       return updatedUser
     },
     deleteUser: async ({input}) => {

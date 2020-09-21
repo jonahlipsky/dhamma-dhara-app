@@ -11,7 +11,6 @@ class UserAPI extends DataSource{
   }
 
   async getUser({ id } = {}){
-    
     let user = await this.store.prisma.users.findOne({ 
       where: {
         id: parseInt(id)
@@ -51,6 +50,25 @@ class UserAPI extends DataSource{
       data: input
     });
     return user;
+  }
+
+  async updateUser(input){
+    const user = await this.store.prisma.users.findOne({ 
+      where: {
+        id: parseInt(id)
+      }
+    });
+    console.log(`test: ${user}`)
+    if(user){
+      const updated_user = await this.store.prisma.users.update({
+        where: { id: user.id },
+        data: input
+      });
+      
+      return updated_user;
+    } else {
+      return null;
+    }
   }
 }
 

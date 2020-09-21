@@ -99,11 +99,21 @@ describe('Mutations', () => {
       }
     `;
 
+    const adjusted_superadmin_user = JSON.parse(JSON.stringify(superadmin_user));
+    adjusted_superadmin_user.username = 'lysha smith';
+
     beforeEach(() => {
-      userAPI.store.prisma.users.findOne.mockReturnValueOnce(superadmin_user)
-      // mock the update request
+      userAPI.store.prisma.users.findOne.mockReturnValueOnce(superadmin_user);
+      userAPI.store.prisma.users.update.mockReturnValueOnce(adjusted_superadmin_user);
     });
 
+    it('accesses the prisma client with the proper variables and returns the updated user', async () => {
+      const query_data = { id: 1, username: 'lysha smith' }
+      const res = await mutate( { mutation: UPDATE_USER, variables: { input: query_data } } );
+      expect(res).toMatchSnapshot();
+      expect(userAPI.store.prisma.users.update.mock.calls[0][0]).toEqual({ where: { id: query_data.id }, data: { query_data } });
+      expect(res.data.updateUser).toEqual({ id: '1', username: 'lysha smith', admin: 2 });
+    });
   });
   describe('deleteUser', () => {
 

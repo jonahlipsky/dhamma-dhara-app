@@ -3,7 +3,8 @@ const mockStore = {
     users: {
       findOne: jest.fn(),
       findMany: jest.fn(),
-      create: jest.fn()
+      create: jest.fn(),
+      update: jest.fn()
     },
   }
 };

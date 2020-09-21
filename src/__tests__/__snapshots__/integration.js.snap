@@ -38,6 +38,23 @@ Object {
 }
 `;
 
+exports[`Mutations updateUser accesses the prisma client with the proper variables and returns the updated user 1`] = `
+Object {
+  "data": Object {
+    "updateUser": null,
+  },
+  "errors": Array [
+    [GraphQLError: Cannot destructure property 'input' of 'undefined' as it is undefined.],
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
 exports[`Queries getUser queries the prisma client once with appropriate arguments and returns the user 1`] = `
 Object {
   "data": Object {
