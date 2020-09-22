@@ -27,7 +27,7 @@ module.exports = {
       let newUser = await dataSources.userAPI.createUser(input)
       return newUser
     },
-    updateUser: async ({input}) => {
+    updateUser: async (_, { input }, { dataSources }) => {
       console.log('updating user')
       let updatedUser = await dataSources.userAPI.updateUser(input);
       return updatedUser

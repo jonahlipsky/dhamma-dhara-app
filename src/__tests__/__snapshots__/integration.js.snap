@@ -41,11 +41,13 @@ Object {
 exports[`Mutations updateUser accesses the prisma client with the proper variables and returns the updated user 1`] = `
 Object {
   "data": Object {
-    "updateUser": null,
+    "updateUser": Object {
+      "admin": 2,
+      "id": "1",
+      "username": "lysha smith",
+    },
   },
-  "errors": Array [
-    [GraphQLError: Cannot destructure property 'input' of 'undefined' as it is undefined.],
-  ],
+  "errors": undefined,
   "extensions": undefined,
   "http": Object {
     "headers": Headers {

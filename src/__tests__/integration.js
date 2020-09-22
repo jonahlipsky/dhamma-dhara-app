@@ -111,7 +111,8 @@ describe('Mutations', () => {
       const query_data = { id: 1, username: 'lysha smith' }
       const res = await mutate( { mutation: UPDATE_USER, variables: { input: query_data } } );
       expect(res).toMatchSnapshot();
-      expect(userAPI.store.prisma.users.update.mock.calls[0][0]).toEqual({ where: { id: query_data.id }, data: { query_data } });
+      const { username } = query_data;
+      expect(userAPI.store.prisma.users.update.mock.calls[0][0]).toEqual({ where: { id: query_data.id }, data: { username } });
       expect(res.data.updateUser).toEqual({ id: '1', username: 'lysha smith', admin: 2 });
     });
   });
