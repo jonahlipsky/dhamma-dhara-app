@@ -19,13 +19,11 @@ Object {
 }
 `;
 
-exports[`Mutations createUser accesses the prisma client to create a user and returns the newly created user 1`] = `
+exports[`Mutations deleteUser accesses the prisma client with the proper variables and returns the deleted user 1`] = `
 Object {
   "data": Object {
-    "createUser": Object {
-      "admin": 2,
+    "deleteUser": Object {
       "id": "1",
-      "username": "lysha",
     },
   },
   "errors": undefined,
@@ -95,24 +93,6 @@ Object {
     ],
   },
   "errors": undefined,
-  "extensions": undefined,
-  "http": Object {
-    "headers": Headers {
-      Symbol(map): Object {},
-    },
-  },
-}
-`;
-
-exports[`getUsers fetches a list of users 1`] = `
-Object {
-  "data": undefined,
-  "errors": Array [
-    [ValidationError: Cannot query field "id" on type "Query".],
-    [ValidationError: Cannot query field "username" on type "Query".],
-    [ValidationError: Cannot query field "admin" on type "Query".],
-    [ValidationError: Cannot query field "token" on type "Query".],
-  ],
   "extensions": undefined,
   "http": Object {
     "headers": Headers {

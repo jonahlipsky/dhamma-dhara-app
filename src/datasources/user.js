@@ -71,6 +71,15 @@ class UserAPI extends DataSource{
       return null;
     }
   }
+
+  async deleteUser(input){
+    const user = await this.store.prisma.users.delete({
+      where: {
+        id: parseInt(input)
+      }
+    });
+    return user;
+  }
 }
 
 module.exports = UserAPI;

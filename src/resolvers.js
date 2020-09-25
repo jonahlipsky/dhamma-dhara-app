@@ -25,17 +25,17 @@ module.exports = {
     createUser: async (_, { input }, { dataSources }) => {
       console.log('creating user')
       let newUser = await dataSources.userAPI.createUser(input)
-      return newUser
+      return newUser;
     },
     updateUser: async (_, { input }, { dataSources }) => {
       console.log('updating user')
       let updatedUser = await dataSources.userAPI.updateUser(input);
-      return updatedUser
+      return updatedUser;
     },
-    deleteUser: async ({input}) => {
+    deleteUser: async (_, { input }, { dataSources }) => {
       console.log('deleting user')
-      let deletedUser = await userQueries.deleteUser(input)
-      return deletedUser
+      let deletedUser = await dataSources.userAPI.deleteUser(input);
+      return deletedUser;
     }
   }  
 };

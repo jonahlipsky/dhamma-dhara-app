@@ -127,15 +127,14 @@ describe('Mutations', () => {
     `;
 
     beforeEach(() => {
-      userAPI.store.prisma.users.delete.mockReturnValueOnce(superadmin_user)
+      userAPI.store.prisma.users.delete.mockReturnValueOnce(superadmin_user);
     });
 
     it('accesses the prisma client with the proper variables and returns the deleted user', async () => {
-      const query_data = { id: 1 };
-      const res = await mutate( { mutation: DELETE_USER, variables: { input: query_data } } );
+      const query_data = 1;
+      const res = await mutate({ mutation: DELETE_USER, variables: { input: query_data } });
       expect(res).toMatchSnapshot();
-      const { id } = query_data;
-      expect(userAPI.store.prsima.users.delete.mocks.calls[0][0]).toEqual({ where: { id } });
+      expect(userAPI.store.prisma.users.delete.mock.calls[0][0]).toEqual({ where: { id: query_data } });
       expect(res.data.deleteUser).toEqual({ id: '1' });
     });
     
