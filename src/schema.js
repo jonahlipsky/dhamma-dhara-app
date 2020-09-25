@@ -24,7 +24,7 @@ const typeDefs = gql`
     loginUser(input: String): User,
     createUser(input: CreateUserInput): User,
     updateUser(input: ModifyUserInput): User,
-    deleteUser(input: ModifyUserInput): User
+    deleteUser(input: ID!): User
   }
 `;
 
