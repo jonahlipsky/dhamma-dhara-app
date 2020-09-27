@@ -10,10 +10,10 @@ class UserAPI extends DataSource{
     this.context = config.context;
   }
 
-  async getUser({ id } = {}){
+  async getUser({ username } = {}){
     let user = await this.store.prisma.users.findOne({ 
       where: {
-        id: parseInt(id)
+        username
       }
     });
     return user;

@@ -1,5 +1,5 @@
-const userQueries = require('./datasources/userQueries');
-const { dataSources } = require('./server');
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 module.exports = {
   Query:{
@@ -14,13 +14,31 @@ module.exports = {
     }
   },
   Mutation: {
+    signupUser: async (_, { input }, { dataSources }) => {
+      const { username, password } = input;
+      let admin;
+      if (input.admin){
+        admin = input.admin;
+      } else {
+        admin = 0;
+      }
+      const passwordDigest = bcrypt.hashSync(password, 3);
+      const newUser = await dataSources.userAPI.createUser({ admin, username, passwordDigest });
+      return { token: jwt.sign(newUser, 'supersecret') };
+    },
     loginUser: async (_, { input }, { dataSources }) => {
       console.log('logging in');
-      const user = await dataSources.userAPI.findOrCreateUser({ username: input });
-      if (user) {
-        user.token = new Buffer(input).toString('base64');
-        return user;
-      }
+      // const user = await dataSources.userAPI.findOrCreateUser({ username: input });
+      // if (user) {
+      //   user.token = new Buffer(input).toString('base64');
+      //   return user;
+      // }
+      const { username, password } = input;
+      const user = await dataSources.userAPI.getUser({ username });
+      if (!user) throw new Error('Unable to log in');
+      const isMatch = bcrypt.compareSync(password, user.passwordDigest);
+      if (!isMatch) throw new Error('Unable to log in');
+      return { token: jwt.sign(user, 'supersecret') };
     },
     createUser: async (_, { input }, { dataSources }) => {
       console.log('creating user')
