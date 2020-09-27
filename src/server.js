@@ -15,12 +15,12 @@ const jwt = require('jsonwebtoken');
 const context = async ({ req }) => {
   const auth = (req.headers && req.headers.authorization) || '';
 
-  let token;
+  // let token;
   let decoded;
 
   if (auth !== '') {
-    token = auth.replace('Bearer ', '');
-    decoded = jwt.verify(token, process.env.SECRET_TOKEN);
+    // token = auth.replace('Bearer ', '');
+    decoded = jwt.verify(auth, process.env.SECRET_TOKEN);
   }
 
   if ( !decoded ) {
