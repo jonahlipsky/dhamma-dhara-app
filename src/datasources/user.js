@@ -19,27 +19,6 @@ class UserAPI extends DataSource{
     return user;
   }
 
-  async findOrCreateUser({ username } = {}){
-    const usernameArg = this.context && this.context.user ? this.context.user.username : username;
-    if (!usernameArg) return null;
-
-    let user = await this.store.prisma.users.findOne({ 
-      where: {
-        username: usernameArg
-      }
-    });
-
-    if(!user){
-      user = await this.store.prisma.users.create({
-        data: {
-          username: usernameArg 
-        }
-      });
-    }
-    
-    return user ? user : null;
-  }
-
   async getUsers(){
     const users = await this.store.prisma.users.findMany();
     return users;
@@ -61,15 +40,23 @@ class UserAPI extends DataSource{
     console.log(`test: ${user}`);
     const { username, admin } = input;
     if(user){
-      const updated_user = await this.store.prisma.users.update({
+      const updatedUser = await this.store.prisma.users.update({
         where: { id: user.id },
         data: { username, admin }
       });
       
-      return updated_user;
+      return updatedUser;
     } else {
       return null;
     }
+  }
+
+  async logoutUser({ username }){
+    const loggedOutUser = await this.store.prisma.users.update({
+      where: { username },
+      data: { sessionToken: '' }
+    });
+    return loggedOutUser;
   }
 
   async deleteUser(input){

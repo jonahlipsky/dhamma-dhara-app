@@ -9,17 +9,24 @@ const store = createStore();
 const dataSources = () => ({
   userAPI: new UserAPI({ store })
 });
+const jwt = require('jsonwebtoken');
 
 const context = async ({ req }) => {
   const auth = (req.headers && req.headers.authorization) || '';
-  const username = new Buffer(auth, 'base64').toString('ascii');
-  const user = await store.prisma.users.findOne({
-    where: {
-      username
-    }
-  });
-  
-  return { user };
+
+  let token;
+  let decoded;
+
+  if (auth !== '') {
+    token = auth.replace('Bearer ', '');
+    decoded = jwt.verify(token, process.env.SECRET_TOKEN);
+  }
+
+  if ( !decoded ) {
+    return { user: null};
+  } else {
+    return { user: decoded };
+  }
 };
 
 const server = new ApolloServer({
