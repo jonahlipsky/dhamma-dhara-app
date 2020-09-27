@@ -28,7 +28,9 @@ DATABASE_URL=postgres://[username:password]@localhost:5432/[databasename] yarn r
 Creating a migration: [DB INFO] yarn run migrate create this is my migration name
 
 ## Introspecting with Prisma
-npx prisma introspect
+
+`npx prisma introspect`
+
 NOTE: To fix a failing schema, it might be necessary to delete node modules and re-install them. Prisma stores some information about the schema in the node modules.
 
 ## Heroku 

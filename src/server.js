@@ -6,8 +6,9 @@ const resolvers = require('./resolvers');
 const UserAPI = require('./datasources/user');
 const { createStore } = require('./utils');
 const store = createStore();
+const userAPI = new UserAPI({ store })
 const dataSources = () => ({
-  userAPI: new UserAPI({ store })
+  userAPI
 });
 const jwt = require('jsonwebtoken');
 
@@ -25,7 +26,8 @@ const context = async ({ req }) => {
   if ( !decoded ) {
     return { user: null};
   } else {
-    return { user: decoded };
+    const user = await userAPI.getUserBySessionToken({ sessionToken: decoded });
+    return { user };
   }
 };
 

@@ -5,7 +5,6 @@ const typeDefs = gql`
     id: ID!
     username: String!
     admin: Int!
-    token: String
     password: String!
   },
   input CreateUserInput {
