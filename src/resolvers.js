@@ -3,16 +3,19 @@ const jwt = require('jsonwebtoken')
 module.exports = {
   Query:{
     getUsers: async (_, __, { dataSources }) => {
+      console.log('getting users')
       let users = await dataSources.userAPI.getUsers();
       return users;
     },
     getUser: async (_, { input }, { dataSources }) => {
+      console.log('getting user')
       let user = await dataSources.userAPI.getUser({ id: input });
       return user;
     }
   },
   Mutation: {
     signupUser: async (_, { input }, { dataSources }) => {
+      console.log('signing up user')
       const sessionToken = await dataSources.userAPI.signupUser(input);
       return { token: jwt.sign(sessionToken, process.env.SECRET_TOKEN) };
     },
@@ -22,6 +25,7 @@ module.exports = {
       return { token: jwt.sign(sessionToken, process.env.SECRET_TOKEN) };
     },
     logoutUser: async (_, __, { user, dataSources }) => {
+      console.log('logging out user')
       const { username } = user;
       const databaseUser = await dataSources.userAPI.getUser({ username });
       if (databaseUser) {
