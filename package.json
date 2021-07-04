@@ -2,11 +2,13 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Backend API",
-  "main": "server.js",
+  "main": "index.js",
+  "module": "server.js",
   "scripts": {
     "test": "jest",
     "migrate": "node-pg-migrate",
-    "start": "node server.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "heroku-postbuild": "npm install --production"
   },
   "engines": {
@@ -17,13 +19,18 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.16.1",
+    "argon2": "^0.26.2",
     "cors": "^2.8.5",
     "d3": "^5.16.0",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-graphql": "^0.11.0",
+    "express-session": "^1.17.1",
     "graphql": "^15.3.0",
+    "joi": "^17.2.0",
     "node-pg-migrate": "^5.1.1",
+    "nodemon": "^2.0.4",
     "pg": "^8.2.1"
   },
   "devDependencies": {
